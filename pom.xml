@@ -9,10 +9,14 @@
   <url>http://maven.apache.org</url>
 
   <properties>
-    <java.version>21</java.version>
-    <spring.version>6.1.0</spring.version> <!-- Latest stable Spring 6.x version -->
+    <java.version>17</java.version>
+    <!-- We need to use Spring 5 to work with MVC in the way taught in the program -->
+    <!-- To use Spring 6, is better to do it through Spring Boot directly -->
+    <!-- We will do that in the last 2-3 lessons of Module 5 -->
+    <spring.version>5.3.23</spring.version>
     <thymeleaf.version>3.1.2.RELEASE</thymeleaf.version>
-    <hibernate.version>6.4.0.Final</hibernate.version> <!-- Latest stable Hibernate 6.x version -->
+    <!-- Downgrade to be compatible with Spring 5 -->
+    <hibernate.version>5.6.14.Final</hibernate.version>
     <mysql.version>8.0.33</mysql.version>
     <slf4j.version>2.0.9</slf4j.version> <!-- Latest stable SLF4J version -->
     <logback.version>1.4.11</logback.version> <!-- Latest stable Logback version -->
@@ -47,13 +51,13 @@
     <dependency>
       <groupId>org.springframework.data</groupId>
       <artifactId>spring-data-jpa</artifactId>
-      <version>3.1.0</version> <!-- Latest stable Spring Data JPA version -->
+      <version>2.7.13</version> <!-- Latest version compatible with Spring 5 -->
     </dependency>
 
     <!-- Thymeleaf -->
     <dependency>
       <groupId>org.thymeleaf</groupId>
-      <artifactId>thymeleaf-spring6</artifactId>
+      <artifactId>thymeleaf-spring5</artifactId> <!-- Downgrade to be compatible with Spring 5 -->
       <version>${thymeleaf.version}</version>
     </dependency>
 
@@ -71,6 +75,14 @@
       <version>6.0.0</version>
       <scope>provided</scope>
     </dependency>
+
+    <!-- Required if we use a spring JPA module compatible with Spring 5-->
+    <dependency>
+      <groupId>javax.persistence</groupId>
+      <artifactId>javax.persistence-api</artifactId>
+      <version>2.2</version>
+    </dependency>
+
 
     <!-- MySQL Connector -->
     <dependency>
