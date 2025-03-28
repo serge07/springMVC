@@ -1,9 +1,7 @@
 package com.example.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
+import javax.persistence.*;
 
 @Entity
 public class User {
@@ -11,15 +9,15 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String username;
+    private String name;
     private String email;
     private int age;
 
     public User() {}
 
-    public User(int id ,String username, String email, int age) {
+    public User(int id ,String name, String email, int age) {
         this.id=id;
-        this.username = username;
+        this.name = name;
         this.email = email;
         this.age = age;
     }
@@ -32,12 +30,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {

@@ -17,14 +17,16 @@
     </tr>
     <tr th:each="user : ${users}">
         <td th:text="${user.id}"></td>
-        <td th:text="${user.username}"></td>
+        <td th:text="${user.name}"></td>
         <td th:text="${user.email}"></td>
         <td th:text="${user.age}"></td>
     </tr>
-
-
-
 </table>
 
+<div class="d-flex justify-content-between">
+    <a th:if="${hasPrevious}" th:href="@{/users(page=${currentPage - 1})}" class="btn btn-primary">Previous</a>
+    <span th:text="'Page' + (${currentPage}+1) + ' of ' + ${totalPages}"></span>
+    <a th:if="${hasNext}" th:href="@{/users(page=${currentPage + 1})}" class="btn btn-primary">Next</a>
+</div>
 </body>
 </html>
